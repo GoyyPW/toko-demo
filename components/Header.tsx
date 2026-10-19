@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { orderLink } from "@/lib/whatsapp";
+import MobileMenu from "@/components/MobileMenu";
 
 const menu = [
   { label: "Beranda", href: "/" },
@@ -34,26 +35,7 @@ export default function Header() {
         </nav>
 
         {/* Mobile: pakai <details> bawaan HTML, tanpa JavaScript */}
-        <details className="relative md:hidden">
-          <summary className="cursor-pointer list-none rounded-lg border border-stone-300 px-3 py-2 text-sm font-medium">
-            Menu
-          </summary>
-          <div className="absolute right-0 mt-2 w-52 rounded-xl border border-stone-200 bg-white p-2 shadow-lg">
-            {menu.map((m) => (
-              <Link key={m.href} href={m.href} className="block rounded-lg px-3 py-2 text-sm text-stone-700 hover:bg-stone-100">
-                {m.label}
-              </Link>
-            ))}
-            <a
-              href={orderLink()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-1 block rounded-lg bg-amber-800 px-3 py-2 text-center text-sm font-semibold text-white"
-            >
-              Pesan via WhatsApp
-            </a>
-          </div>
-        </details>
+        <MobileMenu items={menu} orderHref={orderLink()} />
       </div>
     </header>
   );
