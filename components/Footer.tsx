@@ -43,7 +43,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-stone-800 py-4 text-center text-xs text-stone-500">
-        © {new Date().getFullYear()} Kopi Nusantara. Website demo.
+        © © 2026 Kopi Nusantara. Website demo.
       </div>
     </footer>
   );
