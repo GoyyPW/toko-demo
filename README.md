@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kopi Nusantara
 
-## Getting Started
+Website toko kopi lokal dengan katalog menu dan pemesanan lewat WhatsApp. Pelanggan memilih menu, menekan tombol pesan, dan WhatsApp terbuka dengan pesan yang sudah berisi nama produk.
 
-First, run the development server:
+**Demo langsung:** https://toko-demo-git-desain-fun-goyy1.vercel.app/
+
+![Tampilan website Kopi Nusantara](./docs/beranda.png)
+
+> Ini proyek demo untuk portofolio. Nama usaha, menu, harga, alamat, dan nomor WhatsApp adalah contoh fiktif.
+
+## Masalah yang diselesaikan
+
+Banyak usaha kecil menerima pesanan lewat chat, tetapi pelanggan harus mengetik ulang menu dan harga, dan pemilik usaha menjawab pertanyaan yang sama berulang kali. Website ini menampilkan menu dengan rapi dan menyiapkan pesan pemesanan secara otomatis, sehingga pesanan lebih cepat dan jelas.
+
+## Fitur
+
+- Halaman utama dengan hero, katalog 8 menu, bagian tentang kami, dan footer berisi jam buka
+- Halaman detail untuk setiap produk
+- Tombol **Pesan via WhatsApp** dengan pesan otomatis berisi nama produk
+- Tampilan responsif dengan menu khusus HP
+- Gaya visual pop yang ekspresif: garis tebal, warna berani, dan kartu yang sedikit miring
+
+## Teknologi
+
+- [Next.js](https://nextjs.org) (App Router) dan React
+- TypeScript
+- Tailwind CSS
+- Font Bricolage Grotesque dan DM Sans (`next/font`)
+- Dihosting di Vercel
+
+## Menjalankan di komputer sendiri
+
+Butuh Node.js versi LTS.
 
 ```bash
+git clone https://github.com/GoyyPW/toko-demo.git
+cd toko-demo
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Struktur proyek
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+toko-demo/
+├─ app/
+│  ├─ page.tsx               # halaman utama
+│  └─ produk/[slug]/page.tsx # halaman detail produk
+├─ components/               # header, hero, kartu produk, tentang, footer, tombol WhatsApp
+├─ data/products.ts          # daftar produk
+└─ lib/whatsapp.ts           # nomor WhatsApp dan pembuat link pesan
+```
 
-## Learn More
+## Menyesuaikan untuk usaha lain
 
-To learn more about Next.js, take a look at the following resources:
+Website ini dibuat agar mudah dipakai ulang:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Produk:** ubah isi `data/products.ts` (nama, harga, deskripsi, kategori).
+- **Nomor WhatsApp:** ubah `WA_NUMBER` di `lib/whatsapp.ts` (awali dengan 62, tanpa tanda + atau 0).
+- **Warna dan font:** diatur di `app/globals.css` dan `app/layout.tsx`.
+- **Foto asli:** ganti gambar placeholder di kartu produk dan hero.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Ingin website seperti ini untuk usahamu?
 
-## Deploy on Vercel
+Saya menerima pembuatan website dan sistem kecil untuk UMKM, lengkap dengan desain yang disesuaikan dengan karakter usahamu.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Kontak: Email : yog2987@gmail.com atau WA : 081515679413
+- Portofolio lain: https://github.com/GoyyPW/stok-demo
