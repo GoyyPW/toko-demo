@@ -15,19 +15,19 @@ export default function MobileMenu({ items, orderHref }: { items: Item[]; orderH
         type="button"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
-        className="rounded-lg border border-stone-300 px-4 py-2 text-sm font-medium"
+        className="pop pop-press rounded-full bg-lemon px-4 py-2 text-sm font-bold"
       >
         {open ? "Tutup" : "Menu"}
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-56 rounded-xl border border-stone-200 bg-white p-2 shadow-lg">
+        <div className="pop absolute right-0 mt-3 w-60 rounded-2xl bg-paper p-2">
           {items.map((m) => (
             <Link
               key={m.href}
               href={m.href}
               onClick={close}
-              className="block rounded-lg px-3 py-3 text-sm text-stone-700 hover:bg-stone-100"
+              className="block rounded-xl px-3 py-3 text-sm font-semibold hover:bg-lemon"
             >
               {m.label}
             </Link>
@@ -37,7 +37,7 @@ export default function MobileMenu({ items, orderHref }: { items: Item[]; orderH
             target="_blank"
             rel="noopener noreferrer"
             onClick={close}
-            className="mt-1 block rounded-lg bg-amber-800 px-3 py-3 text-center text-sm font-semibold text-white"
+            className="pop mt-2 block rounded-xl bg-mint px-3 py-3 text-center text-sm font-bold"
           >
             Pesan via WhatsApp
           </a>

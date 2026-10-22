@@ -3,21 +3,22 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { formatRupiah, type Product } from "@/data/products";
 import { productOrderLink } from "@/lib/whatsapp";
 
-const tone: Record<Product["category"], string> = {
-  Kopi: "bg-amber-100 text-amber-900",
-  "Non-Kopi": "bg-emerald-100 text-emerald-900",
-  "Biji Kopi": "bg-stone-200 text-stone-800",
+export const tone: Record<Product["category"], string> = {
+  Kopi: "bg-bubble",
+  "Non-Kopi": "bg-mint",
+  "Biji Kopi": "bg-lemon",
 };
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white transition hover:shadow-lg">
-      {/* Link hanya membungkus gambar dan teks, bukan tombol WhatsApp */}
+    <article className="pop pop-press flex flex-col overflow-hidden rounded-3xl bg-white odd:-rotate-1 even:rotate-1 hover:rotate-0">
       <Link href={`/produk/${product.slug}`} className="block">
-        <div className={`flex aspect-[4/3] items-center justify-center ${tone[product.category]}`}>
+        <div
+          className={`relative flex aspect-[4/3] items-center justify-center border-b-[2.5px] border-ink ${tone[product.category]}`}
+        >
           <svg
             viewBox="0 0 120 120"
-            className="h-20 w-20 opacity-70"
+            className="h-20 w-20 text-ink"
             fill="none"
             stroke="currentColor"
             strokeWidth="5"
@@ -29,15 +30,17 @@ export default function ProductCard({ product }: { product: Product }) {
             <path d="M85 56h8a10 10 0 0 1 0 20h-10" />
             <path d="M45 20c-4 6 4 10 0 18M62 20c-4 6 4 10 0 18" />
           </svg>
+          <span className="font-display absolute right-3 top-3 rotate-3 rounded-full border-2 border-ink bg-white px-3 py-1 text-sm font-extrabold">
+            {formatRupiah(product.price)}
+          </span>
         </div>
 
         <div className="p-4">
-          <p className="text-xs font-medium uppercase tracking-wide text-stone-500">
+          <p className="inline-block rounded-full border-2 border-ink px-2.5 py-0.5 text-xs font-semibold">
             {product.category}
           </p>
-          <h3 className="mt-1 text-lg font-semibold text-stone-900">{product.name}</h3>
-          <p className="mt-1 line-clamp-2 text-sm text-stone-600">{product.description}</p>
-          <p className="mt-3 text-lg font-bold text-amber-900">{formatRupiah(product.price)}</p>
+          <h3 className="font-display mt-2 text-xl font-extrabold leading-tight">{product.name}</h3>
+          <p className="mt-1 line-clamp-2 text-sm text-ink/70">{product.description}</p>
         </div>
       </Link>
 

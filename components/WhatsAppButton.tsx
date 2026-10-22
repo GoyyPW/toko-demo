@@ -10,14 +10,14 @@ export default function WhatsAppButton({ href, children, className = "" }: Props
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-2 rounded-full bg-green-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-green-700 ${className}`}
+      className={`pop pop-press inline-flex items-center justify-center gap-2 rounded-full bg-mint px-6 py-3 text-sm font-bold text-ink ${className}`}
     >
       <svg
         viewBox="0 0 24 24"
         className="h-5 w-5"
         fill="none"
         stroke="currentColor"
-        strokeWidth="2"
+        strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"
         aria-hidden="true"

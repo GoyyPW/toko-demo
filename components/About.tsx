@@ -1,36 +1,32 @@
-const points = [
-  { title: "Biji Lokal Pilihan", text: "Dipilih langsung dari petani di sekitar Jawa Timur." },
-  { title: "Sangrai Segar", text: "Disangrai dalam jumlah kecil supaya aroma tetap terjaga." },
-  { title: "Pesan Mudah", text: "Cukup kirim chat, pesananmu kami siapkan." },
+const notes = [
+  { title: "Biji lokal pilihan", text: "Dipilih langsung dari petani di sekitar Jawa Timur.", bg: "bg-lemon", tilt: "-rotate-2" },
+  { title: "Disangrai segar", text: "Sedikit-sedikit, supaya aromanya masih juara.", bg: "bg-bubble", tilt: "rotate-2" },
+  { title: "Pesan tanpa ribet", text: "Kirim chat, pesananmu kami siapkan.", bg: "bg-mint", tilt: "-rotate-1" },
 ];
 
 export default function About() {
   return (
-    <section id="tentang" className="scroll-mt-20 bg-amber-50 py-16">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-2 md:items-center">
+    <section id="tentang" className="mt-16 scroll-mt-16 overflow-x-clip border-y-[2.5px] border-ink bg-cobalt py-16 text-white">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 md:grid-cols-2 md:items-center">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-widest text-amber-800">
-            Tentang Kami
-          </p>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-stone-900">
-            Kopi sederhana, dibuat dengan sepenuh hati.
+          <h2 className="font-display text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+            Dari Malang, buat kamu yang suka ngopi.
           </h2>
-          <p className="mt-4 text-stone-600">
-            Kopi Nusantara berawal dari kecintaan pada kopi lokal Malang. Kami ingin
-            setiap cangkir terasa dekat: bijinya dari petani sekitar, diseduh oleh
-            orang yang peduli rasanya.
+          <p className="mt-5 max-w-md text-lg text-white/90">
+            Kopi Nusantara berawal dari kecintaan pada kopi lokal. Bijinya dari petani
+            sekitar, diseduh oleh orang yang peduli rasanya.
           </p>
-          <p className="mt-3 text-stone-600">
-            Kamu tidak perlu antre atau install aplikasi. Pilih menu, kirim pesan
-            lewat WhatsApp, dan pesananmu kami siapkan.
+          <p className="mt-3 max-w-md text-lg text-white/90">
+            Nggak perlu antre atau install aplikasi. Pilih menu, kirim pesan lewat
+            WhatsApp, selesai.
           </p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-3 md:grid-cols-1">
-          {points.map((p) => (
-            <div key={p.title} className="rounded-2xl border border-amber-200 bg-white p-5">
-              <p className="font-semibold text-stone-900">{p.title}</p>
-              <p className="mt-1 text-sm text-stone-600">{p.text}</p>
+        <div className="flex flex-col gap-5">
+          {notes.map((n) => (
+            <div key={n.title} className={`pop ${n.bg} ${n.tilt} rounded-2xl p-5 text-ink`}>
+              <p className="font-display text-xl font-extrabold">{n.title}</p>
+              <p className="mt-1 text-sm">{n.text}</p>
             </div>
           ))}
         </div>
